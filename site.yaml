@@ -53,7 +53,7 @@
      path: /var/www/html/index.php
      state: absent
 
-  - name: Copy file with owner and permissions--adding a new index.php file(I know, it overwrites, but extra ssafety:)
+  - name: Copy file with owner and permissions(adding a new index.php file(for safety))
     become: yes
     copy: 
      src: ./index.php
