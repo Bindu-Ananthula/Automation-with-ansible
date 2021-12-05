@@ -1,5 +1,5 @@
 --- 
-- name: Assignment2
+- 
   
   hosts: webservers
   become: true
@@ -10,14 +10,13 @@
     become: yes
     apt:
       update_cache: yes
-      cache_valid_time: 7200
 
   - name: UnInstall nginx 
     apt:
       name: nginx
       state: absent   
     
-  - name: Installing the packages -Installing back Nginx
+  - name: Install Nginx
     become: true
     apt:
       name: nginx
@@ -38,7 +37,7 @@
       name: nginx
       state: started 
     
-  - name: Ansible delete file example -Deleting the nginx.conf file
+  - name: Deleting the nginx.conf file
     file:
       path: /etc/nginx/nginx.conf
       state: absent
@@ -49,7 +48,7 @@
       src: ./nginx.conf
       dest: /etc/nginx/nginx.conf
 
-  - name: Ansible delete file example-clearing any index.php file
+  - name: Ansible delete file (clearing any index.php file)
     file:
      path: /var/www/html/index.php
      state: absent
